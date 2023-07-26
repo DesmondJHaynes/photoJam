@@ -54,64 +54,68 @@ export const Register = () => {
                 console.log(data.public_id);
                 createUser(data.public_id)
             })
-            // .then(navigate("/somewhere"))
+        }else{
+            return
         }
     }
 
 
     return (
-        <>
-            <div className="Container">
-                <h1>Register Account</h1>
-                <div className="userData">
+        <div className="Container">
+            <h1 className="register--h1">
+                Register Account
+            </h1>
+            <div className="userData">
 
-                    <section className="userImage--container">
-                        <div className="preview-Img-container">
-                            {
-                                image ? <img className="image border" src={url} />
-                                    :
-                                    <img className="image border" src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
+                <section className="userImage--container">
+                    <div className="preview-Img-container">
+                        {
+                            image ? <img className="image border" src={url} />
+                                :
+                                <img className="image border" src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
+                        }
+                    </div>
+
+                    <div>
+                        <label className="upload-label">Upload Profile Photo</label>
+                        <br />
+
+                        <input type='file' className="file-upload"
+                            onChange={(event) => {
+                                setImage(event.target.files[0])
+                            }} />
+                    </div>
+                </section>
+
+                <section className="userInfo--container">
+                    <input type='email' className="user-input" placeholder="User Email" value={email}
+                        onChange={
+                            (event) => (setEmail(event.target.value))
+                        } />
+                    <br />
+
+                    <input type='text' className="user-input" placeholder="Full Name " value={name}
+                        onChange={
+                            (event) => (setName(event.target.value))
+                        } />
+                    <br />
+
+                    <input type='text' className="user-input" placeholder="Username" value={username}
+                        onChange={
+                            (event) => (setUsername(event.target.value))
+                        } />
+                    <br />
+
+                    <button className="createAccount button"
+                        onClick={
+                            (event) => {createAccount(event);
+                            navigate("/")
                             }
-                        </div>
-
-                        <div>
-                            <label className="upload-label">Upload Profile Photo</label>
-                            <br />
-
-                            <input type='file' className="file-upload"
-                                onChange={(event) => {
-                                    setImage(event.target.files[0])
-                                }} />
-                        </div>
-                    </section>
-
-                    <section className="userInfo--container">
-                        <input type='email' className="user-input" placeholder="User Email" value={email}
-                            onChange={
-                                (event) => (setEmail(event.target.value))
-                            } />
-                        <br />
-
-                        <input type='text' className="user-input" placeholder="Full Name " value={name}
-                            onChange={
-                                (event) => (setName(event.target.value))
-                            } />
-                        <br />
-
-                        <input type='text' className="user-input" placeholder="Username" value={username}
-                            onChange={
-                                (event) => (setUsername(event.target.value))
-                            } />
-                        <br />
-
-                        <button className="createAccount button"
-                            onClick={
-                                (event) => createAccount(event)
-                            }
-                            >Create Account</button>
-                    </section>
-                </div>
+                        }
+                        >Create Account
+                    </button>
+                </section>
             </div>
-        </>
+        </div>
     )
 }

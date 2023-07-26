@@ -1,0 +1,12 @@
+.new-collection--form{
+    display: flex;
+    flex-direction: column;
+}
+
+.new-collection--button{
+    color: white;
+    background-color: #45bbca;
+    border: none;
+    box-shadow: 0 .1em .4em rgba(0, 0, 0, .3);
+    padding: .7em;
+}
