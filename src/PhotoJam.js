@@ -9,7 +9,7 @@ export const PhotoJam = () => {
   <Routes >
     <Route path="/sign-in" element={<SignIn />} />
     <Route path="/register" element={<Register />} />
-    <Route path="*" element={<Authorization />}>
+    <Route path="/*" element={<Authorization />}>
         <Route index element={<UserRoutes/>} />
     </Route>
   </Routes>
