@@ -1,0 +1,15 @@
+.navbar--container{
+    border: solid 1px blue;
+    width: 17vw;
+    min-width: 140px;
+}
+
+.navList{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.list-item--3{
+    align-self: stretch;
+}

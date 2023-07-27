@@ -3,7 +3,7 @@
     padding: 0 0;
 }
 
-h1{
+.register--h1{
     /* border: 1px solid; */
     font-size: 3em;
     margin-bottom: 4rem;
@@ -12,7 +12,7 @@ h1{
 .Container {
     /* border: 1px; */
     margin: auto;
-    margin-top: 10em;
+    margin-top: 25vh;
 
     display: flex;
     flex-direction: column;
@@ -31,36 +31,35 @@ h1{
     /* border: 1px solid; */
     display: flex;
     flex-direction: column;
-    flex: 1 0 11em;
+    flex: 1 0 15em;
     justify-content: flex-end;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .preview-Img-container{
     /* border: 1px solid; */
-    align-self: flex-start;
-    width: 9em;
-    height: 9em;
-    margin: 0 1em 1.5em 1em;
-    margin-top: 0;
-    border-radius: 50%;
+    align-self: flex-start; 
+    margin: 0 auto 1.5em auto;
     text-align: center;
 }
 
 .image{
-    width: 100%;
+    width: 9em;
+    height: 9em;
     object-fit: cover;
     border-radius: 50%;
 }
 
+.border{
+    box-shadow: 0 2px .4em rgba(0, 0, 0, .3) ;
+}
 
 .file-upload{
-    border: 1px solid #dddddd;
+    border: 2px solid #dddddd;
     border-radius: 3px;
     width: 99%;
     margin-top: .3em;
-    padding: .3em .2em .3em 0
-    ;
+    padding: .3em .2em .3em 0;
     
 }
 
@@ -89,6 +88,7 @@ h1{
 
 .button{
     color: white;
-    background-color: #414BB2;
+    background-color: #45bbca;
     border: none;
+    box-shadow: 0 .1em .4em rgba(0, 0, 0, .3) ;
 }

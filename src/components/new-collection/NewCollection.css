@@ -1,0 +1,29 @@
+.new-collection--container{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    
+}
+
+.new-collection--form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+}
+
+.new-collection--button{
+    color: white;
+    background-color: #45bbca;
+    border: none;
+    box-shadow: 0 .1em .4em rgba(0, 0, 0, .3);
+    padding: .7em;
+}
+
+.new-collection--file-upload{
+    border: 2px solid #dddddd;
+    border-radius: 3px;
+    width: 100;
+    margin-top: .3em;
+    padding: .3em .2em .3em 0;
+    
+}

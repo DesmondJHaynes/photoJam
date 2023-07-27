@@ -1,0 +1,5 @@
+.application--container{
+    display: flex;
+    border: solid greenyellow 1px;
+    height: 99.5svh;
+}
