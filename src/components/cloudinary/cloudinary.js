@@ -1,3 +1,4 @@
+
 export const postCloudinaryImg = (image, publicIdHandler) => {
 
     const imageObj = new FormData()

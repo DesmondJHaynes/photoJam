@@ -9,11 +9,11 @@ export const NavBar = () => {
         <ul className="navList">
             <li className="list-item--1">
                 <img src="#"/>
-                <Link>My Collections</Link> 
+                <Link to={"/"}>My Collections</Link> 
             </li>
             <li className="list-item--2">
                 <img src="#"/>
-                <Link>New Collection</Link>
+                <Link to={"/new-collection"}>New Collection</Link>
             </li>
             <li className="list-item--3">
                 <img src="#"/>
