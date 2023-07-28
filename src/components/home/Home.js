@@ -115,7 +115,19 @@ export const Home = () => {
                 <h2 className="home--username">{username}</h2>
                 <h4 className="home--username">{name}</h4>
             </div>
-            <div>Nothing here</div>
+
+            <div className="home--divider"></div>
+            <input type="text" className="home--search-bar" name="searchbar"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}/>
+            <div>
+                <img className="home--404image" src="#"/>
+                <div>
+                    <h4>
+                        Hmm...<br/>Looks like you don't have any collections yet.
+                    </h4>
+                    <button className="home--button" onClick={null}>Start One Here!</button></div>
+            </div>
             </div>
         )
     } else {
