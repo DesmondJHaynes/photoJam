@@ -3,6 +3,8 @@ import { NavBar } from "../navbar/NavBar.js"
 import { NewCollection } from "../new-collection/NewCollection.js"
 import { Home } from "../home/Home.js"
 import "./UserRoutes.css"
+import { Collection } from "../collection/Collection.js"
+import { EditProfile } from "../edit-profile/EditProfile.js"
 
 export const UserRoutes = () => {
 
@@ -13,9 +15,9 @@ export const UserRoutes = () => {
             <Outlet />
             <Routes>
                 <Route path="/" index element={<Home/>} />
-                <Route path="/collection/:id" element={"collection view"} />
+                <Route path="/collection/:id" element={<Collection/>} />
                 <Route path="/new-collection" element={<NewCollection/>} />
-                <Route path="/edit-profile" element={"edit-profile view"} />
+                <Route path="/edit-profile" element={<EditProfile/>} />
             </Routes>
         </div>
 

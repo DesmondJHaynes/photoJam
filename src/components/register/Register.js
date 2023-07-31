@@ -51,7 +51,6 @@ export const Register = () => {
             })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.public_id);
                 createUser(data.public_id)
             })
         }else{

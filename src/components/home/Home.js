@@ -1,7 +1,7 @@
 import { Image } from "cloudinary-react"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-
+import "./Home.css"
 
 export const Home = () => {
     const user = JSON.parse(localStorage.getItem("photoUser"))
@@ -60,7 +60,8 @@ export const Home = () => {
         {
             const thumb = collection.collection.thumbnail
             return(
-                <Link className="home--collection-Link" key={collection.collectionId}>
+                <Link to={`/collection/${collection.collectionId}`}
+                className="home--collection-Link" key={collection.collectionId}>
                 <div className="collection-card" >
                     <Image
                         className="collection-image"
@@ -83,7 +84,8 @@ export const Home = () => {
             const thumb = collection.collection.thumbnail
 
             return(
-                <Link className="home--collection-Link" key={collection.collectionId}>
+                <Link to={`/collection/${collection.collectionId}`} 
+                className="home--collection-Link" key={collection.collectionId}>
                 <div className="collection-card" >
                     <Image
                         className="collection-image"
@@ -116,11 +118,13 @@ export const Home = () => {
                 <h4 className="home--username">{name}</h4>
             </div>
 
-            <div className="home--divider"></div>
-            <input type="text" className="home--search-bar" name="searchbar"
+            <div className="divider"></div>
+            <div>
+                <label htmlFor="searchbar">Search for a cOllection</label>
+                <input type="text" className="home--search-bar"  
+                name="searchbar"
                 value={search}
                 onChange={(event) => setSearch(event.target.value)}/>
-            <div>
                 <img className="home--404image" src="#"/>
                 <div>
                     <h4>
@@ -146,7 +150,9 @@ export const Home = () => {
                     <h4 className="home--username">{name}</h4>
                 </div>
     
-                <div className="home--divider"></div>
+                <div className="divider"></div>
+                <div className="home--gallery-container">
+                <label htmlFor="searchbar">Search for a Collection</label>
                 <input type="text"
                     className="home--search-bar"
                     name="searchbar"
@@ -172,6 +178,7 @@ export const Home = () => {
                     }
                 </section>
                 <div className="home--gallery">
+                </div>
                 </div>
             </div>
         )

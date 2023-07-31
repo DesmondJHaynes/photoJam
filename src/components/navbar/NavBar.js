@@ -17,14 +17,15 @@ export const NavBar = () => {
             </li>
             <li className="list-item--3">
                 <img src="#"/>
-                <Link>Edit Profile</Link>
+                <Link to={"/edit-profile"}>Edit Profile</Link>
             </li>
+        </ul>
+        <ul className="navList">
             <li className="list-item--4">
                 <img src="#"/>
                 <Link>Logout</Link>
             </li>
         </ul>
-        
         
     </div>
     )

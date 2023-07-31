@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react"
 import "./NewCollection.css"
 import { postCloudinaryImg } from "../cloudinary/cloudinary.js"
+import { useNavigate } from "react-router-dom"
 
 export const NewCollection = () => {
+    const photoUser = JSON.parse(localStorage.getItem("photoUser"))
+    const navigate = useNavigate()
+
     const [image, setImage] = useState("")
     const [url, setUrl] = useState("")
     const [title, setTitle] = useState("")
@@ -12,16 +16,14 @@ export const NewCollection = () => {
         image && setUrl(URL.createObjectURL(image))    
     },[image])
 
-    const photoUser = JSON.parse(localStorage.getItem("photoUser"))
 
-
-// Phase1 create collection
     const createCollection = (public_id) => {
         const collectionObj= 
         {
             "name": title,
             "description": description,
-            "hostId": photoUser.id
+            "hostId": photoUser.id,
+            "thumbnail": public_id
         }
 
         return fetch("http://localhost:8088/collections", {
@@ -32,12 +34,11 @@ export const NewCollection = () => {
         .then(res=>res.json())
         .then((data) => {
             createUserCollection(data.id);
-            createPhoto(public_id, data.id)
-            console.log("done=zo")
+            createPhoto(public_id, data.id);
         })
     }
 
-// Phase2 create userCollection
+
     const createUserCollection = (collectionId) => {
         const userCollectionObj= 
         {
@@ -52,7 +53,7 @@ export const NewCollection = () => {
         }).then(res => res.json())
     }
 
-// Phase3 create photo
+    
     const createPhoto = (public_id, collectionId) => {
         const photoObj = 
         {
@@ -66,8 +67,8 @@ export const NewCollection = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(photoObj)
         }).then(res => res.json())
+        .then(()=> navigate(`/collection/${collectionId}`))
     }
-
 
     return (
         <div className="new-collection--container">
@@ -84,12 +85,14 @@ export const NewCollection = () => {
                 <input type="text"
                     className="new-collection--text-area"
                     name="Collection-Tile"
+                    placeholder="Title"
                     value={title}
                     onChange={(event) => setTitle(event.target.value)} />
                 
                 <textarea 
                     className="new-collection--text-area" 
                     name="Collection-Description" 
+                    placeholder="Describe your collection here..."
                     value={description} 
                     onChange={(event) => setDescription(event.target.value)} />
                 
@@ -103,7 +106,10 @@ export const NewCollection = () => {
                 <button className="new-collection--button" onClick={
                     (event) => {
                         event.preventDefault(); 
-                        postCloudinaryImg(image, createCollection)
+                        postCloudinaryImg(image, createCollection);
+                        setImage("")
+                        setTitle("")
+                        setDescription("")
                     }
                     
                 }>Finished</button>
