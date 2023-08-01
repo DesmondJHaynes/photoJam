@@ -20,7 +20,6 @@ export const SignIn = () => {
         const currentUser = users.find((user)=> user.email === email)
 
         if (currentUser) {
-            console.log("congrats")
             localStorage.setItem("photoUser", JSON.stringify({
                 id: currentUser.id,
                 email: currentUser.email,
@@ -48,7 +47,7 @@ export const SignIn = () => {
             </div>
 
             <div className="link">
-            <Link to={"/register"}>Not a member yet?</Link>
+            <Link to={"/register"}>Not a member yet? </Link>
             </div>
         </div>
     )

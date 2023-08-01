@@ -35,7 +35,9 @@ export const EditProfile = () => {
         .then(()=> fetchUser())
 
     }
-
+        if (!icon) {
+            return null
+        }
         return(
             <>
             <div className="user-preview">
@@ -44,7 +46,8 @@ export const EditProfile = () => {
                         icon ?
                             <Image className="image border" cloudName="photojam-nss" publicId={icon} />
                             :
-                            <img className="image border" src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
+                            // <img className="image border" src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
+                            null
                     }
                 </div>
                 <h2 className="home--username">{username}</h2>

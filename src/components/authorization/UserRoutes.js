@@ -5,6 +5,7 @@ import { Home } from "../home/Home.js"
 import "./UserRoutes.css"
 import { Collection } from "../collection/Collection.js"
 import { EditProfile } from "../edit-profile/EditProfile.js"
+import { EditCollection } from "../edit-collection/EditCollection.js"
 
 export const UserRoutes = () => {
 
@@ -17,6 +18,7 @@ export const UserRoutes = () => {
                 <Route path="/" index element={<Home/>} />
                 <Route path="/collection/:id" element={<Collection/>} />
                 <Route path="/new-collection" element={<NewCollection/>} />
+                <Route path="/edit-collection/:id" element={<EditCollection/>} />
                 <Route path="/edit-profile" element={<EditProfile/>} />
             </Routes>
         </div>

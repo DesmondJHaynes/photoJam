@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./Register.css"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { postCloudinaryImg } from "../cloudinary/cloudinary.js"
 
 
 export const Register = () => {
@@ -19,7 +20,6 @@ export const Register = () => {
 
     
     const createUser = (respData) => {
-        
         const userObj = {
             email: email,
             name: name,
@@ -32,37 +32,22 @@ export const Register = () => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(userObj)
         }).then(res => res.json())
-    }
-
-
-    const createAccount = (event) => {
-        event.preventDefault()
-    
-        if (email && name && username && image) {
-
-            const imageObj = new FormData()
-            imageObj.append("file", image)
-            imageObj.append("upload_preset", "photoapp" )
-        
-            return fetch("https://api.cloudinary.com/v1_1/photojam-nss/image/upload", 
-            {
-                method: "POST",
-                body: imageObj 
-            })
-            .then((res) => res.json())
-            .then((data) => {
-                createUser(data.public_id)
-            })
-        }else{
-            return
-        }
+        .then((user) => {
+            console.log(user)
+            localStorage.setItem("photoUser", JSON.stringify({
+                id: user.id,
+                email: email,
+                username: username
+            }))
+            navigate('/')
+        })
     }
 
 
     return (
         <div className="Container">
             <h1 className="register--h1">
-                Register Account
+                Create New Account
             </h1>
             <div className="userData">
 
@@ -107,13 +92,19 @@ export const Register = () => {
 
                     <button className="createAccount button"
                         onClick={
-                            (event) => {createAccount(event);
-                            navigate("/")
+                            (event) => {
+                                event.preventDefault();
+                                if (email && name && username && image) {
+                                    postCloudinaryImg(image, createUser)
+                                }
                             }
                         }
                         >Create Account
                     </button>
                 </section>
+            </div>
+            <div className="link">
+            <Link to={"/new-collection"}>Return to Sign in</Link>
             </div>
         </div>
     )

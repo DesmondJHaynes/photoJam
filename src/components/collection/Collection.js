@@ -2,12 +2,17 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { postCloudinaryImg } from "../cloudinary/cloudinary.js"
 import { Image } from "cloudinary-react"
+import "./Collection.css"
+import "../modal/ImageModal.css";
+import { ImageModal } from "../modal/ImageModal.js"
 
 export const Collection = () => {
     const {id} = useParams()
-    const navigtate = useNavigate()
+    const navigate = useNavigate()
     const user = JSON.parse(localStorage.getItem("photoUser"))
     
+    
+    const [modal, setModal] = useState(false)
     const [collection, setCollection] = useState({})
     const [collectionUsers, setCollectionUsers] = useState([])
     const [users, setUsers] = useState([])
@@ -15,8 +20,8 @@ export const Collection = () => {
     const [addMember, setAddMember] = useState("")
     const [image, setImage] = useState('')
     const [photos, setPhotos] = useState([])
+    const [photoId, setPhotoId] = useState('')
     const [filtered, setFiltered] = useState(photos)
-
 
 
     useEffect(()=> {
@@ -24,23 +29,20 @@ export const Collection = () => {
         fetchPhotos()
     },[])
 
-    
     useEffect(()=> {
         handleUsersList()
     }, [collectionUsers])
     
-
     useEffect(()=>{
         memberSelect === ''?
         setFiltered(photos)
         :
         setFiltered(
              photos.filter(photo=>
-                photo.userId === parseInt(memberSelect.id)
+                photo.userId === parseInt(memberSelect)
             )
         )
     },[photos, memberSelect])
-
 
 
     const handleCollectionData = () => {
@@ -55,9 +57,8 @@ export const Collection = () => {
     const handleCollectionDelete = (id) => {
         fetch(`http://localhost:8088/collections/${id}`, 
         { method: 'DELETE' })
-        .then(()=> navigtate("/"))
+        .then(()=> navigate("/"))
     }
-
 
     const fetchPhotos = () => {
         fetch(`http://localhost:8088/photos/?collectionId=${id}`)
@@ -65,26 +66,43 @@ export const Collection = () => {
         .then((photoArr) => setPhotos(photoArr))
     }
     
-    
+    const toggleModal = () => {
+        setModal(!modal);
+      };
+
+    useEffect(()=> {
+        if(modal) {
+            document.body.classList.add('active-modal')
+            } else {
+            document.body.classList.remove('active-modal')
+            }
+    },[modal]) 
+   
+
     const handlePhotoGallery = (photo) => {
         return(
-            
-            <Link className="collection--img" key={photo.id}>
-                <div className="image-card" >
+            <div className="image-card" key={photo.id} >
+                    <div id={photo.id} className="collection--image" 
+                        onClick={() => {
+                            setPhotoId(photo.id)
+                            photoId && toggleModal()
+                        }}>
                     <Image
                         className="gallery-image"
                         cloudName="photojam-nss"
                         publicId={photo.publicId} />
-                        <button id={`delete--${photo.id}`} className="delete-image--button"
+                    </div>
+                    {
+                    (collection.hostId === user.id || photo.userId === user.id) &&
+                    <button id={`delete--${photo.id}`} className="delete-image--button"
                         onClick={(event) => {
                             event.preventDefault();
                             const [,imageId] = event.target.id.split("--")
                             handlePhotoDelete(imageId)
-                        }
-                    }
+                        }}
                     >delete</button>
+                    }
                 </div>
-            </Link>
         )
     }
 
@@ -102,7 +120,6 @@ export const Collection = () => {
         }).then(res => res.json())
         .then(()=> {
             fetchPhotos();
-            window.alert('Image Upload Successful')
             
         })
     }
@@ -119,7 +136,7 @@ export const Collection = () => {
         .then(res=> res.json())
         .then(userArr => {
             for (const collectionUser of collectionUsers) {
-                collectionUser.userId !== user.id &&
+                // collectionUser.userId !== user.id &&
                 userObjArr.push(
                     userArr.find(user => user.id === collectionUser.userId)
                     )  
@@ -156,7 +173,6 @@ export const Collection = () => {
     const handleMemberDelete = () => {
         const member = collectionUsers.find((collectionUser) => collectionUser.userId === parseInt(memberSelect))
 
-        console.log(member.id)
         fetch(`http://localhost:8088/userCollections/${member.id}`, 
         { method: 'DELETE' })
         .then(() => {
@@ -164,6 +180,17 @@ export const Collection = () => {
             handleCollectionData();
         })
     }
+
+    const handleLeaveCollection = () => {
+        const member = collectionUsers.find((collectionUser) => collectionUser.userId === parseInt(user.id))
+
+        fetch(`http://localhost:8088/userCollections/${member.id}`, 
+        { method: 'DELETE' })
+        .then(() => {
+            navigate("/")
+        })
+    }
+
 
     const handleMemberPost = (memberId) => {
         const userCollectionObj = 
@@ -186,9 +213,12 @@ export const Collection = () => {
         })
     }
 
-
+    if (!collection) {
+        return null
+    }
     return(
         <div className="collection--container">
+            <div className="member-controls--container">
             <section className="collection--member-container">
                 <h1 className="collection--title">{collection.name}</h1>
                 <p className="colllection--description">{collection.description}</p>
@@ -212,21 +242,24 @@ export const Collection = () => {
                     }>Upload</button>
                 </div>
 
-                <div className="collection--addMember">
-                <label htmlFor="addMember-input">Add User to Collection</label>
-                    <input type="text"
-                        className="collection--addMember-input"
-                        name="addMember"
-                        placeholder="Search Username"
-                        value={addMember}
-                        onChange={(event) => setAddMember(event.target.value)} />
-                    <button className="addMember-button" 
-                    onClick={(event) => {
-                        event.preventDefault();
-                        handleMemberAdd(addMember)
-                    }
-                    }>Add</button>
-                </div>
+                {
+                collection.hostId === user.id &&
+                    <div className="collection--addMember">
+                    <label htmlFor="addMember-input">Add User to Collection</label>
+                        <input type="text"
+                            className="collection--addMember-input"
+                            name="addMember"
+                            placeholder="Search Username"
+                            value={addMember}
+                            onChange={(event) => setAddMember(event.target.value)} />
+                        <button className="addMember-button" 
+                        onClick={(event) => {
+                            event.preventDefault();
+                            handleMemberAdd(addMember)
+                        }
+                        }>Add</button>
+                    </div>
+                }
 
                 <div className="member-list">
                     <label htmlFor="member-select">Filter by User</label>
@@ -237,20 +270,39 @@ export const Collection = () => {
                             handleMemberOptions()
                         }
                     </select>
-                    <button className="host-view remove-member"
+
+                    {
+                        collection.hostId === user.id &&
+                        parseInt(memberSelect) !== user.id &&
+                        memberSelect &&
+                        <button className="host-view remove-member"
                         onClick={(event) => {
                             event.preventDefault();
                             handleMemberDelete()
                         }
                         }>Remove Member</button>
+                     }   
                 </div>
             </section>
-            <div className="collection--button-container">
-                <button className="button--delete-collection"
-                onClick={(event) => {
-                    event.preventDefault()
-                    handleCollectionDelete(id)
-                }}>Delete Collection</button>
+
+            {
+                collection.hostId === user.id ?
+                <div className="collection--button-container">
+                    <button className="button--delete-collection"
+                        onClick={(event) => {
+                            event.preventDefault()
+                            handleCollectionDelete(id)
+                        }}>Delete Collection</button>
+                </div>
+                :
+                <div className="collection--button-container">
+                    <button className="button--leave-collection"
+                        onClick={(event) => {
+                            event.preventDefault()
+                            handleLeaveCollection()
+                        }}>Leave Collection</button>
+                </div>
+            }
             </div>
 
             <div className="divider"></div>
@@ -260,6 +312,9 @@ export const Collection = () => {
                     filtered.map((photo) => handlePhotoGallery(photo))
                 }
             </section>
+            {
+                modal && <ImageModal photoId={photoId} toggleModal={toggleModal} />
+            }
         </div>
     )
 }

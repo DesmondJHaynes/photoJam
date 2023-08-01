@@ -12,7 +12,8 @@
 .Container {
     /* border: 1px; */
     margin: auto;
-    margin-top: 25vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 
     display: flex;
     flex-direction: column;
