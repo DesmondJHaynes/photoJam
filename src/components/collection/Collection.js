@@ -222,14 +222,11 @@ export const Collection = () => {
             <section className="collection--member-container">
                 <h1 className="collection--title">{collection.name}</h1>
                 <p className="colllection--description">{collection.description}</p>
+                <div className="h-divider"></div>
 
                 <div className="collection--add-image">
-                    <h3>Add to the collection</h3>
-                    <input type='file' className="collection--file-upload"
-                        onChange={(event) => {
-                            setImage(event.target.files[0])
-                        }} />
-                    
+                    <h3 className="Large-label">Add to the collection</h3>
+                    <div className="custom-upload-container"> 
                     <button className="collection--button" onClick={
                         (event) => {
                             if (image) {
@@ -240,12 +237,19 @@ export const Collection = () => {
                             }
                         }
                     }>Upload</button>
+                    <input type='file' className="collection--file-upload"
+                        onChange={(event) => {
+                            setImage(event.target.files[0])
+                        }} />
+                    </div>
+                    
                 </div>
 
                 {
                 collection.hostId === user.id &&
                     <div className="collection--addMember">
-                    <label htmlFor="addMember-input">Add User to Collection</label>
+                        <label className="Small-label" htmlFor="addMember-input">Invite Users</label><br/>
+                    <div>
                         <input type="text"
                             className="collection--addMember-input"
                             name="addMember"
@@ -259,10 +263,11 @@ export const Collection = () => {
                         }
                         }>Add</button>
                     </div>
+                    </div>
                 }
 
                 <div className="member-list">
-                    <label htmlFor="member-select">Filter by User</label>
+                    <label className="Small-label" htmlFor="member-select">Filter by User</label><br/>
                     <select name="member-select" id="member-select"
                         onChange={(event) => setMemberSelect(event.target.value)}>
                         <option value={''}>Collection Members</option>
