@@ -19,8 +19,11 @@ export const Home = () => {
     useEffect(()=>{
         fetchUser()
         fetchCollections()
-        .then(() => setfiltered(collections))
     },[])
+
+    useEffect(()=>{
+        setfiltered(collections)
+    },[collections])
 
     useEffect(()=>{
         search === '' && setfiltered(collections)
@@ -105,7 +108,8 @@ export const Home = () => {
                     <div className="preview-Img-container">
                         {
                             icon &&
-                                <Image className="image border" cloudName="photojam-nss" publicId={icon} />
+                                <Image className="image link border" cloudName="photojam-nss" publicId={icon} 
+                                onClick={()=> navigate("/edit-profile")}/>
                                 
                         }
                     </div>
@@ -136,7 +140,8 @@ export const Home = () => {
                     <div className="preview-Img-container">
                         {
                             icon ?
-                                <Image className="image border" cloudName="photojam-nss" publicId={icon} />
+                                <Image className="image link border" cloudName="photojam-nss" publicId={icon} 
+                                onClick={()=> navigate("/edit-profile")}/>
                                 :
                                 // <img className="image border" src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
                                 null
@@ -162,10 +167,9 @@ export const Home = () => {
                 <h3 className="home--gallery-Title">My Collections</h3>
                 <section className="home--collection-cards">
                     {
-                        filtered[0] ?
+                        filtered[0] &&
                         filtered.map((collection) => handleMyCollection(collection))
-                        :
-                        collections.map((collection) => handleMyCollection(collection))
+                        
                     }
                 </section>
                 <h3 className="home--gallery-Title">Shared With Me</h3>

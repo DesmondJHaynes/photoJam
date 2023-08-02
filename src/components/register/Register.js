@@ -39,7 +39,7 @@ export const Register = () => {
                 email: email,
                 username: username
             }))
-            navigate('/')
+            navigate('/new-collection')
         })
     }
 
@@ -96,6 +96,8 @@ export const Register = () => {
                                 event.preventDefault();
                                 if (email && name && username && image) {
                                     postCloudinaryImg(image, createUser)
+                                }else{
+                                    window.alert("Please complete all input fields :)")
                                 }
                             }
                         }

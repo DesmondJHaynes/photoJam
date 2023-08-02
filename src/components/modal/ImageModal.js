@@ -10,8 +10,6 @@ export const ImageModal = ({toggleModal, photoId}) => {
     fetch(`http://localhost:8088/photos/${photoId}`)
     .then(res=> res.json())
     .then((obj) => setDisplay(obj.publicId)) 
-    
-    console.log(photoId)
   },[])
 
     return(

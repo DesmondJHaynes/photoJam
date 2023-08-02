@@ -21,11 +21,10 @@
     margin: 0 8px;
 }
 
-.home--preview-Img-container{
-    /* border: 1px solid; */
-    align-self: flex-start; 
-    text-align: center;
+.link {
+    cursor: pointer;
 }
+
 
 .collection-card{
     box-shadow: 0 2px .4em rgba(0, 0, 0, .3);
