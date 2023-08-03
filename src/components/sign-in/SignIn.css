@@ -4,11 +4,10 @@
 }
 
 .container{
-    text-align: center;
-    margin: auto;
-    margin-top: 30vh;
-    display: grid;
-    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 25em;
 
 }

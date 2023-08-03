@@ -80,15 +80,16 @@ export const NewCollection = () => {
             }
 
             <div className="new-collection--form">
-                <h2>Start a New Collection</h2>
-
+                <h2 className="new--heading heading">Start a New Collection</h2>
+                <div><label className="edit--title-label heading" 
+                htmlFor="Collection-Title">Collection Title</label></div>
                 <input type="text"
-                    className="new-collection--text-area"
-                    name="Collection-Tile"
+                    className="new-collection--input"
+                    name="Collection-Title"
                     placeholder="Title"
                     value={title}
                     onChange={(event) => setTitle(event.target.value)} />
-                
+                <div><label htmlFor="Collection-Description" className="heading">Collection-Description</label></div>
                 <textarea 
                     className="new-collection--text-area" 
                     name="Collection-Description" 
@@ -96,13 +97,16 @@ export const NewCollection = () => {
                     value={description} 
                     onChange={(event) => setDescription(event.target.value)} />
                 
-                <h3>Upload a Photo to get your<br/> Collection Started</h3>
-                
+                <h3 className="heading">Upload a Photo & <br/>get your Collection Started</h3>
+
+                <div className="uploader-div">
+                <button className="fake--button">Add File</button>
                 <input type='file' className="new-collection--file-upload"
                     onChange={(event) => {
                         setImage(event.target.files[0])
                     }} />
-                
+                </div>
+
                 <button className="new-collection--button" onClick={
                     (event) => {
                         event.preventDefault(); 

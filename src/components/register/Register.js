@@ -52,19 +52,18 @@ export const Register = () => {
             <div className="userData">
 
                 <section className="userImage--container">
-                    <div className="preview-Img-container">
-                        {
-                            image ? <img className="image border" src={url} />
-                                :
-                                <img className="image border" src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
-                        }
-                    </div>
+                    {
+                    image ? 
+                        <img className="register--icon border" src={url} />
+                        :
+                        <img className="register--icon border" src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
+                    }
+                    
+                    <label htmlFor="" className="register--label heading" >Upload Profile Photo</label>
 
                     <div>
-                        <label className="upload-label">Upload Profile Photo</label>
-                        <br />
-
-                        <input type='file' className="file-upload"
+                        <button className="register--fake-button">Add File</button>
+                        <input type='file' className="register--file-input"
                             onChange={(event) => {
                                 setImage(event.target.files[0])
                             }} />

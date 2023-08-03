@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { postCloudinaryImg } from "../cloudinary/cloudinary.js";
 import { Image } from "cloudinary-react";
+import "./EditProfile.css"
 
 export const EditProfile = () => {
     const photoUser = JSON.parse(localStorage.getItem("photoUser"))
@@ -40,35 +41,34 @@ export const EditProfile = () => {
         }
         return(
             <>
-            <div className="user-preview">
-                <div className="preview-Img-container">
-                    {
-                        icon ?
-                            <Image className="image border" cloudName="photojam-nss" publicId={icon} />
-                            :
-                            // <img className="image border" src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
-                            null
-                    }
-                </div>
-                <h2 className="home--username">{username}</h2>
+            <div className="EP--container">
+            <section className="EP--user-preview">  
+                <Image className="EP--icon border" cloudName="photojam-nss" publicId={icon} />
+                <h2 className="home--username heading">{username}</h2>
                 <h4 className="home--username">{name}</h4>
-            </div>
-            <div>
-                <h3 className="edit-profile--heading">Change Profile Photo</h3>
+            </section>
+            <section className="EP--form">
+                <h3 className="EP--heading heading">Change Profile Photo</h3>
                 <div>
-                    <label className="upload-label">Upload image here</label>
-                    <input type='file' className="file-upload" 
+                    <label className="EP--upload heading">Upload image here</label>
+                    <div>
+                    <button className="EP--fake-button">Add File</button>
+                    <input type='file' className="EP--upload-file-input" 
                         onChange={(event) => {
                             setImage(event.target.files[0])
                         }} />
-                    <button className="new-collection--button" onClick={
+                    <div>
+                        <button className="EP--Update-button" onClick={
                         (event) => {
                             event.preventDefault(); 
                             image && postCloudinaryImg(image, handleIconUpload);
                             return event.target.value = null
                         }
-                    }>Finished</button>
+                    }>Update</button>
+                    </div>
+                    </div>
                 </div>
+            </section>
             </div>
             </>
         )

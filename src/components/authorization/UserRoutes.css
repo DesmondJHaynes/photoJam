@@ -1,6 +1,5 @@
 .application--container{
     display: flex;
-    /* border: solid greenyellow 1px; */
     height: 100svh;
     overflow-y: hidden;
 }
@@ -10,7 +9,6 @@
 }
 
 .application--navbar{
-    /* border: solid 1px black; */
     box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.3);
     width: 15vw;
     min-width: 180px;
@@ -18,12 +16,13 @@
 }
 
 .application--content{
-    /* border: blue 1px solid; */
     border-top: none;
     margin: 0 auto;
     background-color: #ffffff;
     width: 65%;
+    min-width: 48em;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
 body{

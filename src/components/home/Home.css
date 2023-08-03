@@ -8,6 +8,15 @@
     text-align: center;
 }
 
+.image{
+    align-self: flex-start; 
+    margin: 0 auto 1.5em auto;
+    text-align: center;
+    width: 9em;
+    height: 9em;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
 .home--search-bar-container{
     border: 1px solid rgb(179, 179, 179);

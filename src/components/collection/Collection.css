@@ -2,19 +2,17 @@
     display: flex;
     margin: 0 auto; 
     height: 100%;
-    border: 1px red solid;
-    border-top: none;
 }
 
 .member-controls--container{
     padding: 1em 1em 1em 2em;
     width: 45%;
-    min-width: 14em; 
+    min-width: 15em;
+    max-width: 15em; 
     display: flex;
     flex-direction: column;
     gap: 10%;
     justify-content: space-between;
-    /* border: 1px blue solid; */
 }
 
 .collection--title{
@@ -51,26 +49,38 @@
     margin-top: 2em;
 }
 
+.collection--fake-button{
+    color: #22a3b4;
+    font-size: smaller;
+    background-color: #fdfdfd;
+    border: 1px solid #37b6c7;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 6.6em;
+    padding: .48em;
+    position: absolute;
+    pointer-events: none; 
+    /* opacity: 40%; */
+}
+.custom-upload-container{
+    display: flex;
+}
 
-.collection--file-upload{
+.collection--file-input{
     padding: .4em 0 ;
     border: 1px solid #cccccc;
     border-radius: 3px;
     width: 96%;
     margin-top: 0;
-    cursor: pointer;
 }
 
-.collection--button{
-    color: rgb(253, 253, 253);
-    font-size: smaller;
+.collection--upload-button{
+    color: rgb(243, 243, 243);
+    font-size: small;
     background-color: #37b6c7;
     border: none;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    width: 6.6em;
-    padding: .55em;
-    position: absolute; 
+    border-radius: 3px;
+    padding: .5em;
 }
 
 .collection--addMember{
@@ -89,7 +99,7 @@
 }
 
 .addMember-button{
-    color: #37b6c7;
+    color: #22a3b4;
     font-size: smaller;
     background-color: #ffffff;
     border: #37b6c7 1px solid;
@@ -127,8 +137,6 @@
     gap: 1em;
     overflow-y:auto;
     padding: 1em 2em;
-    /* border: green solid 1px; */
-    
 }
 
 .image-card{
@@ -162,6 +170,7 @@
     margin-top: -17em;
     margin-left: 15em;
     opacity: 75%;
+    transition: .15s;
 }
 
 .delete-image--button:hover{
@@ -170,7 +179,8 @@
     text-shadow: 0 0 .1em rgba(255, 255, 255, 0.8);
 }
 
-.button--delete-collection, .button--leave-collection{
+.button--delete-collection, 
+.button--leave-collection{
     color: rgb(243, 243, 243);
     font-size: medium;
     background-color: #da0063;
@@ -179,4 +189,12 @@
     border-radius: 3px;
     width: 100%;
     padding: .8em;
+    transition: .25s;
+}
+
+.button--delete-collection:hover, 
+.button--leave-collection:hover,
+.remove-member:hover{
+    text-shadow: 0 0 .1em rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 .4em rgba(255, 0, 0, 0.8);
 }

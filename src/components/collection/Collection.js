@@ -227,20 +227,19 @@ export const Collection = () => {
                 <div className="collection--add-image">
                     <h3 className="Large-label heading">Add to the collection</h3>
                     <div className="custom-upload-container"> 
-                    <button className="collection--button" onClick={
-                        (event) => {
+                    <button className="collection--fake-button">Choose File</button>
+                    <input type='file' className="collection--file-input"
+                        onChange={(event) => {
+                            setImage(event.target.files[0])
+                        }} />
+                    <button className="collection--upload-button" onClick={(event) => {
                             if (image) {
                                 event.preventDefault(); 
                                 postCloudinaryImg(image, handlePhotoPost)
                             }else{
                                 window.alert('Please select an image file first')
                             }
-                        }
-                    }>Upload</button>
-                    <input type='file' className="collection--file-upload"
-                        onChange={(event) => {
-                            setImage(event.target.files[0])
-                        }} />
+                        }}>Upload</button>
                     </div>
                     
                 </div>

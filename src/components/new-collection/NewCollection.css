@@ -1,44 +1,90 @@
 .new-collection--container{
     display: flex;
-    margin: 0 auto;
-    /* border: 1px solid; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .new-collection--image{
     width: 25em;
-    height: 25em;
-    margin: auto 1em;
+    height:25em;
+    margin-right: 1.5em;
     object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 .3em .5em rgba(0, 0, 0, .4);
 }
 
 .new-collection--form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 20em;
     height: 25em;
-    /* box-shadow: 0 0px .3em rgba(0, 0, 0, .3); */
-    /* border-radius: 4px; */
+    display: flex;
+    flex-direction: column;
     margin: auto 0;
 }
 
-.new-collection--button{
-    color: white;
-    background-color: #45bbca;
-    border: none;
-    box-shadow: 0 .1em .4em rgba(0, 0, 0, .3);
-    padding: .7em;
+.new--heading{
+    margin-bottom: .5em;
 }
 
-.new-collection--file-upload{
-    border: 2px solid #dddddd;
+.new-collection--input{
+    padding: .4em 1em;
+    width: 65%;
+    font-size: small;
+    border: 1px solid #cccccc;
     border-radius: 3px;
-    width: 100;
+    margin-bottom: .5em;
+}
+
+.new-collection--text-area{
+    padding: .4em 1em;
+    height: 8em;
+    margin-bottom: 2em;
+    font-size: small;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+}
+
+.fake--button{
+    color: #37b6c7;
+    font-size: smaller;
+    background-color: #fdfdfd;
+    border: 1px solid #37b6c7;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 6.7em;
+    padding: .4em;
+    position: absolute;
+    margin-top: 4px;
+    pointer-events:none;
+}
+
+
+.new-collection--file-upload{
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    width: 18em;
     margin-top: .3em;
     padding: .3em .2em .3em 0;
+    
+}
+
+.uploader-div{
+    margin-bottom: 1.5em;
     
 }
 
 button{
     cursor: pointer;
 }
+
+.new-collection--button{
+    color: white;
+    background-color:#37b6c7;
+    text-shadow: 0 0 .1em rgba(255, 255, 255, 0.8);
+    border: none;
+    box-shadow: 0 .1em .3em rgba(34, 179, 198, 0.3);
+    padding: .7em;
+    border-radius: 3px;
+}
+

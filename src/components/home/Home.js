@@ -6,15 +6,14 @@ import "./Home.css"
 export const Home = () => {
     const user = JSON.parse(localStorage.getItem("photoUser"))
     const navigate = useNavigate()
+
     const [icon, setIcon] = useState("")
     const [name, setName] = useState("")
     const [username, setUsername] = useState("")
-    
     const [search, setSearch] = useState("")
     const [collections, setCollections] = useState([])
     const [filtered, setfiltered] = useState([])
  
-    
     
     useEffect(()=>{
         fetchUser()
@@ -101,7 +100,7 @@ export const Home = () => {
     }
 
 
-        if (!collections[0]) {
+    if (!collections[0]) {
         return (
             <div className="home--container">
                 <div className="user-preview">
@@ -120,16 +119,6 @@ export const Home = () => {
                 <div className="divider"></div>
                 
                 <div className="home--gallery-container">
-                {/* <div>
-                    <h4>
-                        Hmm...<br/>Looks like you don't have any collections yet.
-                    </h4>
-                    <button className="home--button" 
-                        onClick={() => {
-                            navigate("/new-collection");
-                        }}
-                    >Start One Here!</button>
-                </div> */}
                 </div>
             </div>
         )
@@ -139,12 +128,9 @@ export const Home = () => {
                 <div className="user-preview">
                     <div className="preview-Img-container">
                         {
-                            icon ?
+                            icon &&
                                 <Image className="image link border" cloudName="photojam-nss" publicId={icon} 
                                 onClick={()=> navigate("/edit-profile")}/>
-                                :
-                                // <img className="image border" src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
-                                null
                         }
                     </div>
                     <h2 className="home--username">{username}</h2>
