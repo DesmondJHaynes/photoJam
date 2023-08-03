@@ -6,13 +6,13 @@
 .register--h1{
     /* border: 1px solid; */
     font-size: 3em;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .Container {
     /* border: 1px; */
     margin: auto;
-    margin-top: 10vh;
+    margin-top: 15vh;
     margin-bottom: 10vh;
 
     display: flex;
@@ -26,7 +26,6 @@
     gap: 2em;
     
 }
-
 
 .userImage--container{
     /* border: 1px solid; */
@@ -87,9 +86,3 @@
     opacity: 1; 
   }
 
-.button{
-    color: white;
-    background-color: #45bbca;
-    border: none;
-    box-shadow: 0 .1em .4em rgba(0, 0, 0, .3) ;
-}

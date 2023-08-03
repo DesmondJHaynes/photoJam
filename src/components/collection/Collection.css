@@ -1,15 +1,20 @@
 .collection--container{
     display: flex;
-    margin: 2rem auto; 
+    margin: 0 auto; 
+    height: 100%;
+    border: 1px red solid;
+    border-top: none;
 }
 
 .member-controls--container{
-    max-width: 35%;
+    padding: 1em 1em 1em 2em;
+    width: 45%;
     min-width: 14em; 
-    /* border: 1px solid; */
     display: flex;
     flex-direction: column;
-    gap: 25%;
+    gap: 10%;
+    justify-content: space-between;
+    /* border: 1px blue solid; */
 }
 
 .collection--title{
@@ -29,6 +34,7 @@
     border-top: 2px solid;
     margin: 1em 0 ;
     color:#cccccc;
+
 }
 
 .Large-label{
@@ -45,14 +51,14 @@
     margin-top: 2em;
 }
 
+
 .collection--file-upload{
-    padding: .3em 0 ;
+    padding: .4em 0 ;
     border: 1px solid #cccccc;
     border-radius: 3px;
     width: 96%;
     margin-top: 0;
     cursor: pointer;
-    
 }
 
 .collection--button{
@@ -63,7 +69,7 @@
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     width: 6.6em;
-    padding: .6em;
+    padding: .55em;
     position: absolute; 
 }
 
@@ -119,14 +125,18 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
-    width: 31em; 
+    overflow-y:auto;
+    padding: 1em 2em;
+    /* border: green solid 1px; */
+    
 }
 
 .image-card{
-    width: 15rem;
-    height: 15rem;
+    width: 16rem;
+    height: 16rem;
     margin-bottom: 1em;
-    
+    margin-left: .5em;
+    position: relative;
 }
 
 .collection--image{
@@ -134,10 +144,30 @@
 }
 
 .gallery-image{
-    width: 15rem;
-    height: 15rem;
+    width: 100%;
+    height: 16rem;
     box-shadow: 0 2px .4em rgba(0, 0, 0, .3);
     object-fit: cover;
+    border-radius: 3px;
+}
+
+.delete-image--button{
+    color: rgb(243, 243, 243);
+    font-size: medium;
+    background-color: #da0063;
+    border: none;
+    border-radius: 3px;
+    padding: .14em .55em;
+    position: absolute;
+    margin-top: -17em;
+    margin-left: 15em;
+    opacity: 75%;
+}
+
+.delete-image--button:hover{
+    opacity: 100%;
+    box-shadow: 0 .1em .4em rgba(255, 0, 0, 0.8);
+    text-shadow: 0 0 .1em rgba(255, 255, 255, 0.8);
 }
 
 .button--delete-collection, .button--leave-collection{

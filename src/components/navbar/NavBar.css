@@ -1,7 +1,18 @@
 .navbar--container{
-    /* border: solid 1px blue; */
-    width: 17vw;
-    min-width: 140px;
+    height: 100%;
+}
+
+.nav-sections{
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    height:85vh;
+}
+
+.navbar--title{
+    margin: .25em .30em;
+    font-size: 3em;
+
 }
 
 .navList{
@@ -10,6 +21,38 @@
     list-style: none;
 }
 
-.list-item--3{
-    align-self: stretch;
+
+.list{
+    display: flex;
+    align-items: center;
+    margin-left: .5em;
 }
+
+.nav-link{
+    font-size: 1.2em;
+}
+
+.nav-icon {
+    width: 30px;
+    height: 30px;
+    padding: .5em;
+    text-align: center;
+}
+
+.icon-2{
+    width: 33px;
+    height: 33px;
+    margin-left: -2px;
+}
+
+.icon-3{
+    width: 29px;
+    height: 29px;
+    margin-left: 3px;
+}
+
+.icon-4{
+    width: 31px;
+    height: 31px;
+}
+

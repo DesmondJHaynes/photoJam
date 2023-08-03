@@ -46,7 +46,7 @@ export const Register = () => {
 
     return (
         <div className="Container">
-            <h1 className="register--h1">
+            <h1 className="register--h1 heading">
                 Create New Account
             </h1>
             <div className="userData">

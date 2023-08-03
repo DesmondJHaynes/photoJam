@@ -26,24 +26,28 @@
     gap: .6em;
 }
 
-.user-input, .button{
+.sign-in-user-input, .button{
     border-radius: 3px;
     padding: .7em;
     text-align: center;
     
 }
 
-.user-input {
-    font-size: small;
-    border: 2px solid #dddddd;  
+.sign-in-user-input{
+    font-size: 1em;
+    border: 1px solid #c0c0c0; 
+    border-radius: 3px; 
 }
 
 .button{
     color: white;
-    background-color: #45bbca;
+    text-shadow:0 0 1px #ffffff;
+    background-color: #41bdce;
     border: none;
     width: 100%;
-    box-shadow: 0 .1em .4em rgba(0, 0, 0, .3) ;
+    font-size: 1em;
+    font-weight: 400;
+    /* box-shadow: 0 .1em .4em rgba(0, 0, 0, .3) ; */
 }
 
 .link {

@@ -12,7 +12,10 @@ export const UserRoutes = () => {
     return(
     
         <div className="application--container">
+            <div className="application--navbar" >
             <NavBar />
+            </div>
+            <div className="application--content">
             <Outlet />
             <Routes>
                 <Route path="/" index element={<Home/>} />
@@ -21,6 +24,7 @@ export const UserRoutes = () => {
                 <Route path="/edit-collection/:id" element={<EditCollection/>} />
                 <Route path="/edit-profile" element={<EditProfile/>} />
             </Routes>
+            </div>
         </div>
 
     )

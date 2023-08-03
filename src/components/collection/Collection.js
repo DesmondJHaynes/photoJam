@@ -100,7 +100,7 @@ export const Collection = () => {
                             const [,imageId] = event.target.id.split("--")
                             handlePhotoDelete(imageId)
                         }}
-                    >delete</button>
+                    >x</button>
                     }
                 </div>
         )
@@ -220,12 +220,12 @@ export const Collection = () => {
         <div className="collection--container">
             <div className="member-controls--container">
             <section className="collection--member-container">
-                <h1 className="collection--title">{collection.name}</h1>
+                <h1 className="collection--title heading">{collection.name}</h1>
                 <p className="colllection--description">{collection.description}</p>
                 <div className="h-divider"></div>
 
                 <div className="collection--add-image">
-                    <h3 className="Large-label">Add to the collection</h3>
+                    <h3 className="Large-label heading">Add to the collection</h3>
                     <div className="custom-upload-container"> 
                     <button className="collection--button" onClick={
                         (event) => {
@@ -248,7 +248,7 @@ export const Collection = () => {
                 {
                 collection.hostId === user.id &&
                     <div className="collection--addMember">
-                        <label className="Small-label" htmlFor="addMember-input">Invite Users</label><br/>
+                        <label className="Small-label heading" htmlFor="addMember-input">Invite Users</label><br/>
                     <div>
                         <input type="text"
                             className="collection--addMember-input"
@@ -267,7 +267,7 @@ export const Collection = () => {
                 }
 
                 <div className="member-list">
-                    <label className="Small-label" htmlFor="member-select">Filter by User</label><br/>
+                    <label className="Small-label heading" htmlFor="member-select">Filter by User</label><br/>
                     <select name="member-select" id="member-select"
                         onChange={(event) => setMemberSelect(event.target.value)}>
                         <option value={''}>Collection Members</option>
