@@ -20,7 +20,7 @@
     margin: 0 auto;
     background-color: #ffffff;
     width: 65%;
-    min-width: 48em;
+    min-width: 32em;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
     position: relative;
 }

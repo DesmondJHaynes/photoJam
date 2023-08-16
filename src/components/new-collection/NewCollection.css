@@ -4,12 +4,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    gap: 1.5em;
 }
 
 .new-collection--image{
     width: 25em;
     height:25em;
-    margin-right: 1.5em;
     object-fit: cover;
     border-radius: 4px;
     box-shadow: 0 .3em .5em rgba(0, 0, 0, .4);
@@ -59,7 +59,6 @@
     pointer-events:none;
 }
 
-
 .new-collection--file-upload{
     border: 1px solid #cccccc;
     border-radius: 3px;
@@ -88,3 +87,95 @@ button{
     border-radius: 3px;
 }
 
+@media (max-width: 1280px) {
+    .new--heading{
+        margin-bottom: .20em;
+    }
+
+    .new-collection--container{
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        gap: 0.5em;
+    }
+    
+    
+.new-collection--image{
+    width: 18em;
+    height:18em;
+    margin-right: 1.5em;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 .3em .5em rgba(0, 0, 0, .4);
+}
+
+.new-collection--form{
+    width: 15em;
+    height: 18em;
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    /* border: 1px solid; */
+}
+
+
+.new-collection--input{
+    padding: .25em 1em;
+    width: 88.5%;
+    font-size: small;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    margin-bottom: .5em;
+}
+
+.new-collection--text-area{
+    padding: .25em 1em;
+    height: 2em;
+    margin-bottom: .5em;
+    font-size: small;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+}
+
+.new-collection--upload-heading{
+    font-size: medium;
+}
+.new-collection--file-upload{
+    width: 98%;
+}
+
+}
+
+@media (max-width:  950px) {
+    .new-collection--container{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        gap: 1.5em;
+    }
+
+    .new-collection--image{
+        width: 15em;
+        height:15em;
+        object-fit: cover;
+        border-radius: 4px;
+        box-shadow: 0 .3em .5em rgba(0, 0, 0, .4);
+    }
+
+    .new-collection--form{
+        text-align: center;
+    }
+
+    .new-collection--input{
+        text-align: center;
+    }
+
+    .new-collection--text-area{
+        text-align: center;
+    }
+}

@@ -7,7 +7,6 @@
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
     gap: 1em;
-    /* border: 1px solid; */
 }
 
 .EP--user-preview{
@@ -65,6 +64,33 @@
     margin-top: 1.5em;
 }
 
-/* section{
-    border: dotted 1px blue;
-} */
+@media (max-width: 950px) {
+    .EP--container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-columns: 1fr;
+        gap: 1em;
+    }
+    
+    .EP--icon{
+        width: 12em;
+        height: 12em;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .EP--heading{
+        font-size: xx-large;
+        margin-bottom: 1em;
+        text-align: center;
+    }
+    
+    .EP--form{
+    padding: 2em 1em;
+    text-align: center;
+    }
+}
+
