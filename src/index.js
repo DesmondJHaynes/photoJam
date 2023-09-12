@@ -12,3 +12,6 @@ root.render(
     </BrowserRouter>
 );
 
+/*
+https://www.fontshare.com/fonts/tanker
+*/

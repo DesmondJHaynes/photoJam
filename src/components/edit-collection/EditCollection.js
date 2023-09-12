@@ -60,16 +60,20 @@ export const EditCollection = () => {
 
             <div className="edit-collection--form">
                 <div className="edit-main-controls">
-                <h2 className="edit--heading">Edit Collection</h2>
-                <label className="edit--title-label" htmlFor="Collection-Title">Collection Title</label>
+                <h2 className="edit--heading heading">Edit Collection</h2>
+                <div>
+                    <label className="edit--title-label heading" htmlFor="Collection-Title">Collection Title</label>
+                </div>
                 <input type="text"
                     className="edit-collection--title"
                     name="Collection-Title"
                     placeholder="Collection Title"
                     value={title}
                     onChange={(event) => setTitle(event.target.value)} />
-                <br/>
-                <label htmlFor="Collection-Description">Collection-Description</label>
+                
+                <div>
+                    <label htmlFor="Collection-Description" className="heading">Collection-Description</label>
+                </div>
                 <textarea 
                     className="edit-collection--description" 
                     name="Collection-Description" 
@@ -78,12 +82,12 @@ export const EditCollection = () => {
                     onChange={(event) => setDescription(event.target.value)} />
 
                 <div className="edit--button-container">
-                <button className="edit-collection--button" onClick={
-                    (event) => {
+                <button className="edit-collection--button" 
+                    onClick={(event)=>{
                         event.preventDefault(); 
                         title && description && handleCollectionEdit();
-                    }
-                }>Finished</button>
+                    }}
+                    >Update</button>
                 </div>
                 </div>
             

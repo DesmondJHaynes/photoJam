@@ -1,5 +1,42 @@
 .application--container{
     display: flex;
-    border: solid greenyellow 1px;
-    height: 99.5svh;
+    height: 100svh;
+    overflow-y: hidden;
 }
+
+.body{
+    margin: auto 0;
+}
+
+.application--navbar{
+    box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.3);
+    width: 15vw;
+    min-width: 180px;
+    background-color: #ffffff;
+}
+
+.application--content{
+    border-top: none;
+    margin: 0 auto;
+    background-color: #ffffff;
+    width: 65%;
+    min-width: 32em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+body{
+    background: #f5f5f5;
+    ;
+}
+
+*{
+    /* font-family: 'Hind', sans-serif; */
+    font-family: 'Nunito', sans-serif;
+}
+
+.heading{
+     /* font-family: 'Khand', sans-serif; */
+     font-family: 'Bebas Neue', sans-serif;
+    }
+

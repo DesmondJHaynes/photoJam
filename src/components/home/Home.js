@@ -6,130 +6,127 @@ import "./Home.css"
 export const Home = () => {
     const user = JSON.parse(localStorage.getItem("photoUser"))
     const navigate = useNavigate()
+
     const [icon, setIcon] = useState("")
     const [name, setName] = useState("")
     const [username, setUsername] = useState("")
-    
     const [search, setSearch] = useState("")
     const [collections, setCollections] = useState([])
     const [filtered, setfiltered] = useState([])
- 
-    
-    
-    useEffect(()=>{
+
+
+    useEffect(() => {
         fetchUser()
         fetchCollections()
-    },[])
+    }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         setfiltered(collections)
-    },[collections])
+    }, [collections])
 
-    useEffect(()=>{
+    useEffect(() => {
         search === '' && setfiltered(collections)
 
-        if (search.length > 0){
-        setfiltered(
-            collections.filter(collectionObj => collectionObj.collection.name.toUpperCase().includes(search.toUpperCase()))
-        )
-    }
-    },[search])
-    
+        if (search.length > 0) {
+            setfiltered(
+                collections.filter(collectionObj => collectionObj.collection.name.toUpperCase().startsWith(search.toUpperCase()))
+            )
+        }
+    }, [search])
+
     const fetchUser = () => {
         return fetch(`http://localhost:8088/users/${user.id}`)
-        .then(res=>res.json())
-        .then((userObj)=> {
-            setIcon(userObj.iconPublicId)
-            setUsername(userObj.username)
-            setName(userObj.name)
-        })
+            .then(res => res.json())
+            .then((userObj) => {
+                setIcon(userObj.iconPublicId)
+                setUsername(userObj.username)
+                setName(userObj.name)
+            })
     }
 
     const fetchCollections = () => {
         return fetch(`http://localhost:8088/userCollections?_expand=collection&userId=${user.id}`)
-        .then(res=> res.json())
-        .then(collectionArr=> setCollections(collectionArr))
+            .then(res => res.json())
+            .then(collectionArr => setCollections(collectionArr))
     }
-        
+
     const handleMyCollection = (collection) => {
-        if (collection.collection.hostId === user.id)
-        {
+        if (collection.collection.hostId === user.id) {
             const thumb = collection.collection.thumbnail
-            return(
+            return (
                 <Link to={`/collection/${collection.collectionId}`}
-                className="home--collection-Link" key={collection.collectionId}>
-                <div className="collection-card">
-                    <Image
-                        className="collection-image"
-                        cloudName="photojam-nss"
-                        publicId={thumb}/>
-                    <div className="collection-controls">
-                        <h4>{collection.collection?.name}</h4>
-                        <button className="collection-card--button"
-                        onClick={(event)=> {
-                            event.preventDefault();
-                            navigate(`/edit-collection/${collection.collectionId}`)
-                            }}>Edit</button>
+                    className="home--collection-Link kill-link-style" key={collection.collectionId}>
+                    <div className="collection-card selector-anim">
+                        <Image
+                            className="collection-image"
+                            cloudName="photojam-nss"
+                            publicId={thumb} />
+                        <div className="collection-controls">
+                            <h4 className="collection-card-title heading">{collection.collection?.name}</h4>
+                            <button className="collection-card--button"
+                                onClick={(event) => {
+                                    event.preventDefault();
+                                    navigate(`/edit-collection/${collection.collectionId}`)
+                                }}>Edit</button>
+                        </div>
                     </div>
-                </div>
                 </Link>
             )
         }
     }
 
     const handleShared = (collection) => {
-        if (collection.collection.hostId !== user.id)
-        {
+        if (collection.collection.hostId !== user.id) {
             const thumb = collection.collection.thumbnail
 
-            return(
-                <Link to={`/collection/${collection.collectionId}`} 
-                className="home--collection-Link" key={collection.collectionId}>
-                <div className="collection-card" >
-                    <Image
-                        className="collection-image"
-                        cloudName="photojam-nss"
-                        publicId={thumb} />
-    
-                    <div className="collection-controls">
-                        <h4>{collection.collection?.name}</h4>
+            return (
+                <Link to={`/collection/${collection.collectionId}`}
+                    className="home--collection-Link kill-link-style" key={collection.collectionId}>
+                    <div className="collection-card selector-anim" >
+                        <Image
+                            className="collection-image"
+                            cloudName="photojam-nss"
+                            publicId={thumb} />
+
+                        <div className="collection-controls">
+                            <h4 className="collection-card-title heading"> {collection.collection?.name}</h4>
+                        </div>
                     </div>
-                </div>
                 </Link>
             )
         }
     }
 
 
-        if (!collections[0]) {
+    if (!collections[0]) {
         return (
             <div className="home--container">
                 <div className="user-preview">
-                    <div className="preview-Img-container">
-                        {
-                            icon &&
-                                <Image className="image link border" cloudName="photojam-nss" publicId={icon} 
-                                onClick={()=> navigate("/edit-profile")}/>
-                                
-                        }
-                    </div>
+                    {
+                        icon &&
+                        <Image className="image link border" cloudName="photojam-nss" publicId={icon}
+                            onClick={() => navigate("/edit-profile")} />
+                    }
                     <h2 className="home--username">{username}</h2>
                     <h4 className="home--username">{name}</h4>
                 </div>
-    
-                <div className="divider"></div>
-                
+
+                <div className="v-divider"></div>
+
                 <div className="home--gallery-container">
-                {/* <div>
-                    <h4>
-                        Hmm...<br/>Looks like you don't have any collections yet.
-                    </h4>
-                    <button className="home--button" 
-                        onClick={() => {
-                            navigate("/new-collection");
-                        }}
-                    >Start One Here!</button>
-                </div> */}
+
+                    <div className="home--search-bar-container">
+                        <label htmlFor="searchbar">Search</label>
+                        <input type="text"
+                            className="home--search-bar"
+                            name="searchbar"
+                            value={search}
+                            onChange={(event) => setSearch(event.target.value)} />
+                    </div>
+
+                    <h2 className="home--gallery-Title heading">My Collections</h2>
+
+                    <h2 className="home--gallery-Title heading">Shared With Me</h2>
                 </div>
             </div>
         )
@@ -137,54 +134,49 @@ export const Home = () => {
         return (
             <div className="home--container">
                 <div className="user-preview">
-                    <div className="preview-Img-container">
-                        {
-                            icon ?
-                                <Image className="image link border" cloudName="photojam-nss" publicId={icon} 
-                                onClick={()=> navigate("/edit-profile")}/>
-                                :
-                                // <img className="image border" src="https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" />
-                                null
-                        }
-                    </div>
-                    <h2 className="home--username">{username}</h2>
-                    <h4 className="home--username">{name}</h4>
+                    {
+                        icon &&
+                        <Image className="image link border" cloudName="photojam-nss" publicId={icon}
+                            onClick={() => navigate("/edit-profile")} />
+                    }
+                    <h2 className="home--username heading">{username}</h2>
+                    <h4 className="home--full-name">{name}</h4>
                 </div>
-    
-                <div className="divider"></div>
+
+                <div className="v-divider"></div>
 
                 <div className="home--gallery-container">
 
-                <div className="home--search-bar-container"> 
-                <label htmlFor="searchbar">Search</label>
-                <input type="text"
-                    className="home--search-bar"
-                    name="searchbar"
-                    value={search}
-                    onChange={(event) => setSearch(event.target.value)} />
-                </div>
-    
-                <h3 className="home--gallery-Title">My Collections</h3>
-                <section className="home--collection-cards">
-                    {
-                        filtered[0] &&
-                        filtered.map((collection) => handleMyCollection(collection))
-                        
-                    }
-                </section>
-                <h3 className="home--gallery-Title">Shared With Me</h3>
+                    <div className="home--search-bar-container">
+                        <label htmlFor="searchbar">Search</label>
+                        <input type="text"
+                            className="home--search-bar"
+                            name="searchbar"
+                            value={search}
+                            onChange={(event) => setSearch(event.target.value)} />
+                    </div>
 
-                <section className="home--collection-cards">
-                    { 
-                        filtered[0] ?
-                        filtered.map((collection) => handleShared(collection))
-                        :
-                        collections.map((collection) => handleShared(collection))
-                    }
-                </section>
+                    <h2 className="home--gallery-Title heading">My Collections</h2>
+                    <section className="home--collection-cards">
+                        {
+                            filtered[0] &&
+                            filtered.map((collection) => handleMyCollection(collection))
+
+                        }
+                    </section>
+                    <h2 className="home--gallery-Title heading">Shared With Me</h2>
+
+                    <section className="home--collection-cards">
+                        {
+                            filtered[0] ?
+                                filtered.map((collection) => handleShared(collection))
+                                :
+                                collections.map((collection) => handleShared(collection))
+                        }
+                    </section>
                 </div>
             </div>
         )
-    }    
+    }
 }
 

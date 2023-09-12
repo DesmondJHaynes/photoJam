@@ -34,10 +34,10 @@ export const SignIn = () => {
     return(
         <div className="container">
 
-            <h1 className="signIn--h1">photojam</h1>
+            <h1 className="signIn--h1 heading">photojam</h1>
 
             <div className="signIn-controls">
-                <input type='email' name='email' className="user-input" placeholder="User Email" value={email}
+                <input type='email' name='email' className="sign-in-user-input" placeholder="User Email" value={email}
                     onChange={
                         (event) => (setEmail(event.target.value))
                     } />

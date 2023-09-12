@@ -3,48 +3,45 @@
     padding: 0 0;
 }
 
-.register--h1{
-    /* border: 1px solid; */
-    font-size: 3em;
-    margin-bottom: 4rem;
-}
 
 .Container {
-    /* border: 1px; */
-    margin: auto;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.register--h1{
+    font-size: 3em;
+    margin-bottom: 3rem;
 }
 
 .userData{
     display: flex;
     justify-content: center;
     gap: 2em;
-    
 }
 
-
 .userImage--container{
-    /* border: 1px solid; */
     display: flex;
     flex-direction: column;
     flex: 1 0 15em;
     justify-content: flex-end;
-    /* text-align: center; */
 }
 
 .preview-Img-container{
-    /* border: 1px solid; */
     align-self: flex-start; 
     margin: 0 auto 1.5em auto;
     text-align: center;
 }
 
-.image{
+.register--icon{
+    align-self: flex-start; 
+    margin: 0 auto 1.5em auto;
+    text-align: center;
     width: 9em;
     height: 9em;
     object-fit: cover;
@@ -55,17 +52,33 @@
     box-shadow: 0 2px .4em rgba(0, 0, 0, .3) ;
 }
 
-.file-upload{
-    border: 2px solid #dddddd;
+.register--label{
+    text-align: center;
+}
+
+.register--file-input{
+    border: 1px solid #cccccc;
     border-radius: 3px;
-    width: 99%;
+    width: 18em;
     margin-top: .3em;
-    padding: .3em .2em .3em 0;
-    
+    padding: .3em .2em .3em 0;  
+}
+
+.register--fake-button{
+    color: #37b6c7;
+    font-size: smaller;
+    background-color: #fdfdfd;
+    border: 1px solid #37b6c7;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 6.6em;
+    padding: .4em;
+    position: absolute;
+    margin-top: 4px;
+    pointer-events:none;
 }
 
 .userInfo--container{
-    /* border: 1px solid; */
     display: grid;
     flex: 1 0 18rem;
     padding: 1em 0 0 0;
@@ -87,9 +100,3 @@
     opacity: 1; 
   }
 
-.button{
-    color: white;
-    background-color: #45bbca;
-    border: none;
-    box-shadow: 0 .1em .4em rgba(0, 0, 0, .3) ;
-}
