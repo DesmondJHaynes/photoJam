@@ -1,4 +1,84 @@
-# Getting Started with Create React App
+
+# Photojam
+
+Photojam is a simple and easy to use platform that allows users to create and share personal coollections between close-knit circles. The application acts as something of a digital photo album allowing each user to share photos from the lense of their own personal perspective.
+
+This application is a learning application built in the span of 2 weeks. My main goal for the application was to implement full CRUD functionality while also providing a simple yet attractive user experience utilizing React and vanilla CSS.
+
+___
+## User Experience Demo
+* Given Photojam's most basic functionality, users are able to upload and view images to and from collections that they have created or have been shared with them. 
+* Once a user is a member of a collection, they are able to:
+    * filter images based on group members 
+    * upload their own images,
+    * delete images as they please. 
+* The scope of user privileges (specifically the power of deletion) is determined by whether the current user is the host of that particular collection or not. This can be illustrated below.
+
+![Photojam Light Demo](public/photojam.gif)
+___
+## Setup
+
+#####Prerequisite
+* Photojam requires [Node.js](https://nodejs.org/en)
+    * Use the above link to download the recommended version and follow any additional instructions from the download manager.
+
+* Photojam also relies on the [cloudinary](https://cloudinary.com/) image and video hosting platform to display photos uploaded from the user's local machine.
+
+    * The application currently interfaces through a test profile titled "photo app" on the cloudinary website, which is purely for educational purposes only, and is not secure for professional usage.
+
+    * If you would like to establish your own profile/security keys. I highly recommend signing up through the link above (it's free), and checking out these videos below as a means of getting cloudinary up and running on your own application.
+https://www.youtube.com/watch?v=Y-VgaRwWS3o&t=69s
+https://www.youtube.com/watch?v=LzMXdnABrCM&t=618s
+
+...
+
+1. Clone this repository
+2. cd into the directory
+3. Install the necessary packages:
+    ```bash
+    npm install
+    ``` 
+    ```bash 
+    npm install --save react react-dom react-router-dom
+    ``` 
+    ``` bash
+    npm install json-server
+    ``` 
+    ``` bash
+    npm install cloudinary-react
+    ``` 
+4. This step is optional as I've provided a sample database "database.json" in the photojam repo; however I highly recommend you run these commands:
+    ``` bash
+    cd .. 
+    ```
+    ``` bash
+    mkdir photojam-api 
+    ```
+    ``` bash
+    cd photojam-testing-api 
+    ```
+    ``` bash
+    touch database.json 
+    ```
+    
+    * With this you now have a seperate directory titled "photojam--testing-api", and a clean database.json file inside of it. You can copy/paste the sample code from photojam's "database.json" inside of it inside of this new directory. This way you can edit and play with the apps features as much as you want, while still maintaining a clean sample database whenever you may need it for reference.
+
+5. After copy/pasting the database file, run:```json-server -w database.json -p 8088``` from the photojam-testing-api directory.
+
+6. In a separate terminal, cd into the photojam directory and run ```npm start```
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +147,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
