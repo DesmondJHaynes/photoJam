@@ -1,15 +1,15 @@
-.collection--container{
+.collection--container {
     display: flex;
-    margin: 0 auto; 
+    margin: 0 auto;
     height: 100%;
     /* border: 1px solid blue; */
 }
 
-.member-controls--container{
+.member-controls--container {
     padding: 1em 2em;
     width: 45%;
     min-width: 10em;
-    max-width: 15em; 
+    max-width: 15em;
     display: flex;
     flex-direction: column;
     gap: 10%;
@@ -17,41 +17,41 @@
     /* border: 1px solid blue; */
 }
 
-.collection--title{
+.collection--title {
     font-size: xx-large;
     margin-bottom: .3em;
 }
 
 
-.colllection--description{
+.colllection--description {
     font-size: small;
     font-weight: 400;
     width: 55%;
     color: #303030;
 }
 
-.h-divider{
+.h-divider {
     border-top: 2px solid;
-    margin: 1em 0 ;
-    color:#cccccc;
+    margin: 1em 0;
+    color: #cccccc;
 
 }
 
-.Large-label{
+.Large-label {
     font-size: large;
 }
 
-.Small-label{
+.Small-label {
     font-size: small;
     font-weight: 600;
 }
 
 
-.collection--add-image{
+.collection--add-image {
     margin-top: 2em;
 }
 
-.collection--fake-button{
+.collection--fake-button {
     color: #22a3b4;
     font-size: smaller;
     background-color: #fdfdfd;
@@ -61,22 +61,23 @@
     width: 6.6em;
     padding: .48em;
     position: absolute;
-    pointer-events: none; 
+    pointer-events: none;
     /* opacity: 40%; */
 }
-.custom-upload-container{
+
+.custom-upload-container {
     display: flex;
 }
 
-.collection--file-input{
-    padding: .4em 0 ;
+.collection--file-input {
+    padding: .4em 0;
     border: 1px solid #cccccc;
     border-radius: 3px;
     width: 96%;
     margin-top: 0;
 }
 
-.collection--upload-button{
+.collection--upload-button {
     color: rgb(243, 243, 243);
     font-size: small;
     background-color: #37b6c7;
@@ -85,22 +86,23 @@
     padding: .5em;
 }
 
-.collection--addMember{
+.collection--addMember {
     margin-top: 2em;
 }
 
-.collection--addMember-input{
+.collection--addMember-input {
     padding: .5em 0 .5em .4em;
-    border: 1px solid #cccccc; 
+    border: 1px solid #cccccc;
     border-radius: 3px;
     width: 70%;
     margin-right: 0px;
 }
-::placeholder{
+
+::placeholder {
     color: rgb(126, 126, 126);
 }
 
-.addMember-button{
+.addMember-button {
     color: #22a3b4;
     font-size: smaller;
     background-color: #ffffff;
@@ -110,19 +112,19 @@
     padding: .5em;
 }
 
-.member-list{
+.member-list {
     margin-top: .5em;
 }
 
-#member-select{
-    padding: .4em 0 ;
+#member-select {
+    padding: .4em 0;
     border: 1px solid #cccccc;
     border-radius: 3px;
     width: 99%;
     margin-top: 0;
 }
 
-.remove-member{
+.remove-member {
     color: rgb(243, 243, 243);
     font-size: x-small;
     background-color: #da0063;
@@ -133,20 +135,20 @@
     margin-top: .5em;
 }
 
-.collection--gallery-container{
+.collection--gallery-container {
     display: grid;
-    grid-template-columns: 15rem 15rem 15rem; 
+    grid-template-columns: 15rem 15rem 15rem;
     justify-content: center;
     align-content: start;
     gap: 1em;
     overflow-y: auto;
     margin: 0 auto;
-    width: 48em;
+    width: 49em;
     padding: 1em;
     transition: .15s;
 }
 
-.image-card{
+.image-card {
     width: 15rem;
     height: 15rem;
     margin-bottom: 1em;
@@ -155,12 +157,12 @@
     transition: .15s;
 }
 
-.collection--image{
+.collection--image {
     cursor: pointer;
 }
 
 
-.gallery-image{
+.gallery-image {
     width: 100%;
     height: 15rem;
     box-shadow: 0 2px .4em rgba(0, 0, 0, .3);
@@ -169,7 +171,7 @@
     transition: .15s;
 }
 
-.delete-image--button{
+.delete-image--button {
     color: rgb(243, 243, 243);
     font-size: medium;
     background-color: #da0063;
@@ -183,14 +185,14 @@
     transition: .15s;
 }
 
-.delete-image--button:hover{
+.delete-image--button:hover {
     opacity: 100%;
     box-shadow: 0 .1em .4em rgba(255, 0, 0, 0.8);
     text-shadow: 0 0 .1em rgba(255, 255, 255, 0.8);
 }
 
-.button--delete-collection, 
-.button--leave-collection{
+.button--delete-collection,
+.button--leave-collection {
     color: rgb(243, 243, 243);
     font-size: medium;
     background-color: #da0063;
@@ -202,9 +204,9 @@
     transition: .25s;
 }
 
-.button--delete-collection:hover, 
+.button--delete-collection:hover,
 .button--leave-collection:hover,
-.remove-member:hover{
+.remove-member:hover {
     text-shadow: 0 0 .1em rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 .4em rgba(255, 0, 0, 0.8);
 }
@@ -212,9 +214,9 @@
 
 /* medium desktop */
 @media (max-width: 1706px) {
-    .collection--gallery-container{
+    .collection--gallery-container {
         display: grid;
-        grid-template-columns: 14rem 14rem;  
+        grid-template-columns: 14rem 14rem;
         justify-content: center;
         align-content: start;
         gap: 1em;
@@ -225,16 +227,16 @@
         transition: .15s;
     }
 
-    .image-card{
+    .image-card {
         width: 14rem;
         height: 14rem;
         margin-bottom: 1em;
         margin-left: .5em;
         position: relative;
         transition: .15s;
-}
+    }
 
-    .gallery-image{
+    .gallery-image {
         width: 100%;
         height: 14rem;
         box-shadow: 0 2px .4em rgba(0, 0, 0, .3);
@@ -243,7 +245,7 @@
         transition: .15s;
     }
 
-    .delete-image--button{
+    .delete-image--button {
         color: rgb(243, 243, 243);
         font-size: medium;
         background-color: #da0063;
@@ -257,10 +259,11 @@
         transition: .15s;
     }
 }
+
 @media (max-width: 1400px) {
-    .collection--gallery-container{
+    .collection--gallery-container {
         display: grid;
-        grid-template-columns: 12rem 12rem;  
+        grid-template-columns: 12rem 12rem;
         justify-content: center;
         align-content: start;
         gap: 1em;
@@ -271,16 +274,16 @@
         transition: .15s;
     }
 
-    .image-card{
+    .image-card {
         width: 12rem;
         height: 12rem;
         margin-bottom: 1em;
         margin-left: .5em;
         position: relative;
         transition: .15s;
-}
+    }
 
-    .gallery-image{
+    .gallery-image {
         width: 100%;
         height: 12rem;
         box-shadow: 0 2px .4em rgba(0, 0, 0, .3);
@@ -289,7 +292,7 @@
         transition: .15s;
     }
 
-    .delete-image--button{
+    .delete-image--button {
         color: rgb(243, 243, 243);
         font-size: medium;
         background-color: #da0063;
@@ -309,9 +312,9 @@
 
 
 @media (max-width: 1200px) {
-    .collection--gallery-container{
+    .collection--gallery-container {
         display: grid;
-        grid-template-columns: 14rem;  
+        grid-template-columns: 14rem;
         justify-content: center;
         align-content: start;
         gap: 1em;
@@ -322,16 +325,16 @@
         transition: .15s;
     }
 
-    .image-card{
+    .image-card {
         width: 14rem;
         height: 14rem;
         margin-bottom: 1em;
         margin-left: .5em;
         position: relative;
         transition: .15s;
-}
+    }
 
-    .gallery-image{
+    .gallery-image {
         width: 100%;
         height: 14rem;
         box-shadow: 0 2px .4em rgba(0, 0, 0, .3);
@@ -340,7 +343,7 @@
         transition: .15s;
     }
 
-    .delete-image--button{
+    .delete-image--button {
         color: rgb(243, 243, 243);
         font-size: medium;
         background-color: #da0063;

@@ -26,7 +26,6 @@ export const ImageModal = ({ toggleModal, photoId }) => {
           cloudName="photojam-nss"
           publicId={display} />
         <br />
-        <Link className="modal_download" to={imgUrl} download={display} target="_blank">Download</Link>
       </div>
     </div>
   )

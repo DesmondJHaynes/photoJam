@@ -257,7 +257,8 @@ export const Collection = () => {
                                     name="addMember"
                                     placeholder="Search Username"
                                     value={addMember}
-                                    onChange={(event) => setAddMember(event.target.value)} />
+                                    onChange={(event) => setAddMember(event.target.value)}
+                                    onKeyDown={(e) => { if (e.key === "Enter") { handleMemberAdd(addMember) } }} />
                                 <button className="addMember-button"
                                     onClick={(event) => {
                                         event.preventDefault();
