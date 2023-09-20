@@ -61,11 +61,12 @@ https://www.youtube.com/watch?v=LzMXdnABrCM&t=618s
     touch database.json 
     ```
     
-    * With this you now have a seperate directory titled "photojam--testing-api", and a clean database.json file inside of it. You can copy/paste the sample code from photojam's "database.json" inside of it inside of this new directory. This way you can edit and play with the apps features as much as you want, while still maintaining a clean sample database whenever you may need it for reference.
+    * With this you now have a seperate directory titled "photojam--testing-api", and a clean database.json file inside of it. You can copy/paste the sample code from photojam's "database.json" inside of this new directory. This way you can edit and play with the apps features as much as you want, while still maintaining a clean sample database whenever you may need it for reference.
 
 5. After copy/pasting the database file, run:```json-server -w database.json -p 8088``` from the photojam-testing-api directory.
 
 6. In a separate terminal, cd into the photojam directory and run ```npm start```
+7. The application should start up on it's own in your default browser. (This may take a few seconds, so be patient...but with that, you're ready to fly!)
 
 
 
