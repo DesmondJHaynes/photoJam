@@ -1,7 +1,7 @@
 
 # Photojam
 
-Photojam is a simple and easy to use platform that allows users to create and share personal coollections between close-knit circles. The application acts as something of a digital photo album allowing each user to share photos from the lense of their own personal perspective.
+Photojam is a simple and easy to use platform that allows users to create and share personal collections between close-knit circles. The application acts as something of a digital photo album allowing each user to share photos from the lense of their own personal perspective.
 
 This application is a learning application built in the span of 2 weeks. My main goal for the application was to implement full CRUD functionality while also providing a simple yet attractive user experience utilizing React and vanilla CSS.
 
